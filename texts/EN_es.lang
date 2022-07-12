@@ -1,0 +1,11 @@
+commands.description.addmoney=Add points to others money.
+commands.description.removemoney=Remove points from others money.
+commands.description.setmoney=Set others money.
+commands.description.mymoney=Show your money.
+commands.description.money=Show your and others money.
+commands.description.pay=Pay others with your money.
+commands.messages.mymoney=§aYour money is §e%money
+commands.messages.money=§d%player§r§a money is §e%money
+commands.messages.pay.success1=§aManaged to pay §d%player§r§a for §e%money
+commands.messages.pay.success2=§d%player§r§a has paid §e%money
+commands.messages.pay.invalid=§cNumber invalid!
