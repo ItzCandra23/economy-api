@@ -1,0 +1,11 @@
+commands.description.addmoney=Tambahkan poin ke uang orang lain.
+commands.description.removemoney=Hapus poin dari uang orang lain.
+commands.description.setmoney=Tetapkan uang orang lain.
+commands.description.mymoney=Tunjukkan uangmu.
+commands.description.money=Tunjukkan uang Anda dan orang lain.
+commands.description.pay=Bayar orang lain dengan uangmu.
+commands.messages.mymoney=§aUang Anda adalah §e%money
+commands.messages.money=§d%player§r§a uang adalah §e%money
+commands.messages.pay.success1=§aBerhasil membayar §d%player§r§a untuk §e%money
+commands.messages.pay.success2=§d%player§r§a telah membayar §e%money
+commands.messages.pay.invalid=§cNomor tidak valid!
