@@ -1,0 +1,20 @@
+{
+    "name": "@bdsx/economy-api",
+    "version": "1.0.0",
+    "description": "Added Economy System for bdsx",
+    "main": "index.js",
+    "keywords": [
+        "bdsx",
+        "economy",
+        "economyapi",
+        "economy-api"
+    ],
+    "author": "ItzCandra23",
+    "license": "ISC",
+    "devDependencies": {
+        "bdsx": "file:../bdsx"
+    },
+    "bugs": {
+        "url": "https://github.com/ItzCandra23/economy-api/issues"
+    }
+}
