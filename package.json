@@ -1,5 +1,5 @@
 {
-    "name": "@bdsx/economy-api",
+    "name": "economy-api",
     "version": "1.0.0",
     "description": "Added Economy System for bdsx",
     "main": "index.js",
