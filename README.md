@@ -6,7 +6,7 @@ This plugin added economy system for bdsx.
 
 * /mymoney - ```Show your money.```
 * /money <target: player> - ```Show your and other money.```
-* /pay <target: player> <amount: number> - ```Pay others with your balance```
+* /pay <target: player> <amount: number> - ```Pay others with your money.```
 * /addmoney <target: player> <amount: number> - ```Add money to players.```
 * /removemoney <target: player> <amount: number> - ```Remove money from players.```
 * /setmoney <target: player> <amount: number> - ```Set players money.```
