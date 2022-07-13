@@ -1,5 +1,5 @@
 # EconomyAPI-X
-Added economy system for bdsx.
+This plugin added economy system for bdsx.
 
 
 ## Commands
