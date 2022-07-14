@@ -103,11 +103,7 @@ export class EconomyAPI {
     }
 }
 
-function EconomySave(): void {
-    fs.writeFile(__dirname + '..', '..', 'data', 'config.json', JSON.stringify(config), () => {});
-    fs.writeFile(__dirname + '..', '..', 'data', 'economy.json', JSON.stringify(ecoD), () => {});
-}
-
 events.serverStop.on(() => {
-    EconomySave();
+    fs.writeFile(__dirname + '../../data/config.json', JSON.stringify(config), () => {});
+    fs.writeFile(__dirname + '../../data/economy.json', JSON.stringify(ecoD), () => {});
 });
