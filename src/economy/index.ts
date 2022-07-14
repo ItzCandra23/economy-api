@@ -7,6 +7,8 @@ interface Economy {
     money: number;
 }
 
+const configJSON = "../../data/config.json";
+
 let config = {
     "currency": "$",
     "newplayer_money": 100,
@@ -14,7 +16,7 @@ let config = {
 };
 
 try {
-    config = require(__dirname + '../../data/config.json');
+    config = require(__dirname + configJSON);
 } catch (e) {
 }
 
