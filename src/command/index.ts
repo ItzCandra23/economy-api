@@ -2,7 +2,9 @@ import { CommandPermissionLevel, PlayerCommandSelector } from "bdsx/bds/command"
 import { command } from "bdsx/command";
 import { int32_t } from "bdsx/nativetype";
 import { EconomyAPI } from "../economy";
+import { events } from "bdsx/event";
 
+events.serverOpen.on(() => {
 command.register("addmoney", "Add money to players.", CommandPermissionLevel.Operator)
 .overload((p, o) => {
     for (const tr of p.target.newResults(o)) {
@@ -98,4 +100,5 @@ command.register("pay", "Pay others with your money.")
 }, {
     target: PlayerCommandSelector,
     amount: int32_t,
+});
 });
