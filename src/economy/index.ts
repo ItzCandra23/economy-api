@@ -2,40 +2,26 @@ import { ServerPlayer } from "bdsx/bds/player";
 import { events } from "bdsx/event";
 const fs = require('fs');
 
+const dataJSON = "/economy.json"
+
 interface Economy {
     player: ServerPlayer;
     money: number;
 }
 
-const configJSON = "../../data/config.json";
-
-let config = {
-    "currency": "$",
-    "newplayer_money": 100,
-    "max_money": 7531000,
-};
-
-try {
-    config = require(__dirname + configJSON);
-} catch (e) {
-}
-
 let ecoD: { [key: string]: Economy } = {};
 
 try {
-    ecoD = require(__dirname + `../../data/economy.json`);
+    ecoD = require(__dirname + dataJSON);
 } catch (e) {
 }
 
 export class EconomyAPI {
-    static currency(): string {
-        return config.currency;
-    }
     static addPlayer(player: ServerPlayer): boolean {
         if (ecoD.hasOwnProperty(player.getName())) return false;
         ecoD[player.getName()] = {
             "player": player,
-            "money": config.newplayer_money,
+            "money": 0
         };
         return true;
     }
@@ -59,10 +45,6 @@ export class EconomyAPI {
         this.addPlayer(player);
         const data = ecoD[player.getName()];
         if (amount <= 0) return 0;
-        if (data.money + amount >= config.max_money) {
-            data.money = config.max_money;
-            return config.max_money;
-        }
         data.money += amount;
         return amount;
     }
@@ -84,10 +66,6 @@ export class EconomyAPI {
             data.money = 0;
             return 0;
         }
-        if (amount >= config.max_money) {
-            data.money = config.max_money;
-            return config.max_money;
-        }
         data.money = amount;
         return amount;
     }
@@ -97,7 +75,6 @@ export class EconomyAPI {
         const data1 = ecoD[player.getName()];
         const data2 = ecoD[target.getName()];
         if (amount <= 0) return 0;
-        if (amount >= config.max_money) return 0;
         if (amount >= data1.money) return 0;
         data1.money -= amount;
         data2.money += amount;
@@ -105,7 +82,10 @@ export class EconomyAPI {
     }
 }
 
+events.playerJoin.on(ev => {
+    EconomyAPI.addPlayer(ev.player);
+});
+
 events.serverStop.on(() => {
-    fs.writeFile(__dirname + '../../data/config.json', JSON.stringify(config), () => {});
-    fs.writeFile(__dirname + '../../data/economy.json', JSON.stringify(ecoD), () => {});
+    fs.writeFile(__dirname + dataJSON, JSON.stringify(ecoD), () => {});
 });
